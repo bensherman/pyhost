@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+import socket
+import os
+import argparse
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument('hostname', help='hostname to lookup')
+args = parser.parse_args()
+
+try:
+    h = socket.gethostbyname(args.hostname)
+    print h
+except socket.gaierror as e:
+    print e
